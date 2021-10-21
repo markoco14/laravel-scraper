@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Goutte\Client;
 use Illuminate\Http\Request;
 use App\Models\Link;
+use Paginator;
 
 
 class ListScraperController extends Controller {
@@ -40,7 +41,7 @@ class ListScraperController extends Controller {
 		// // dd($dataC);
 		// $data = array_combine($dataA, $dataB);
 		// // print_r($data);
-		// , compact('data')
+		// return view('list', compact('data'));
 		$data=Link::simplePaginate(15);
 		return view('list', ['links' => $data]);
 	}
