@@ -19,13 +19,16 @@
 	<style>
 		body {
 		    font-family: 'Nunito', sans-serif;
-		    min-height: 1000px;
+		    min-height: 1500px;
 		}
-
 
 		span{
 			text-align: center;
 			border: none;
+			/*display: none;*/
+		}
+		#page-selectors div:nth-child(2) {
+			display: none;
 		}
 
 		h1, h2, h3, h4, h5, p {
@@ -68,15 +71,12 @@
 			color: white;
 		}
 
-		#country-list nav:nth-child(2) .hidden {
+		/*#country-list nav:nth-child(2) .hidden {
 			display: none;
 			background: red;
 
-		}
+		}*/
 
-		.relative {
-			/*display: none;*/
-		}
 	</style>
 </head>
 <body class="antialiased">
@@ -118,9 +118,9 @@
 
 				 @endforeach
 			</ul>
-			{{ $paginators->links() }}
 		</div>
 	</div>
+			<span id="page-selectors">{{ $paginators->links() }}</span>
 
 	</div>
 </body>
