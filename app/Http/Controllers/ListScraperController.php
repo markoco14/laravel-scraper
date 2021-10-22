@@ -92,3 +92,5 @@ class ListScraperController extends Controller {
 // use App\Models\Link;
 // use Paginator;
 // 		$data=Link::simplePaginate(15);
+
+// test
