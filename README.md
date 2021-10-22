@@ -15,6 +15,8 @@ The project has 2 crawlers:
 
 See code here: [welcome.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/welcome.blade.php)
 
+/////controller code here
+
 The index page is the landing page for the website. This page provides 2 links for the user:
 
 1. Data Init Link
@@ -32,6 +34,8 @@ The index page is the landing page for the website. This page provides 2 links f
 ### Database Init
 
 See code here: [data-init.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-init.blade.php)
+
+/////controller code here
 
 The Database Init page helps the user set up the database. When the page loads, the Controller will check if the 'links' table exists.
 
@@ -51,6 +55,8 @@ Once the 'links' table is created, the user can click the CHECK DATA button to g
 
 See code here: [data-ready.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-ready.blade.php)
 
+/////controller code here
+
 ///////////////////////////////////////////////////
 ADD A SAMPLE TABLE TO THE WEBSITE
 ///////////////////////////////////////////////////
@@ -66,6 +72,8 @@ If the 'links' table is not empty, the program will assume the data has already 
 ### Search
 
 See code here: [search.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/search.blade.php)
+
+/////controller code here
 
 The search page lets the user search the entire [worldometer website](https://www.worldometers.info/coronavirus/) for worldwide coronavirus stats, or stats from any country of their choosing. 
 
@@ -83,6 +91,8 @@ When the "Country" selector is chosen, the country name input appears below.
 
 See code here: [scraper.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/scraper.blade.php)
 
+/////controller code here
+
 
 a
 
@@ -92,7 +102,12 @@ a
 
 See code here: [list.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/list.blade.php)
 
+/////controller code here
+
 a
 
 ![paginated-links-example](/resources/images/links-page.png)
+
+
+//// add section about models and schema
 
