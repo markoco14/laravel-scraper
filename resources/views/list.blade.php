@@ -113,8 +113,10 @@
 					 	// // echo $url;
 				 		// echo $key;
 				 	?>
+				 
+				 		
+					 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}}</li></a>
 
-				 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}}</li></a>
 
 				 @endforeach
 			</ul>
@@ -123,5 +125,6 @@
 			<span id="page-selectors">{{ $paginators->links() }}</span>
 
 	</div>
+	
 </body>
 </html>

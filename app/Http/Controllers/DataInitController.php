@@ -27,6 +27,7 @@ class DataInitController extends Controller
     public function createTable() {
 
         $tableName = "links";
+
         // check if the table exists
         if(!Schema::hasTable($tableName)) {
             // create the table on this page but don't fill it with data
@@ -36,6 +37,9 @@ class DataInitController extends Controller
                         $table->string('autocomplete_tag');
                         $table->string('complete_url');
                         $table->string('country_code');
+                        $table->string('cases')->default("");
+                        $table->string('deaths')->default("");
+                        $table->string('recovered')->default("");
                         $table->timestamps();
                     });
 

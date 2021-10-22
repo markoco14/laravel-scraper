@@ -40,4 +40,9 @@ class Link extends Model
     // if (Schema::hasTable('users')) {
     //     // The "users" table exists...
     // }
+    // protected $attributes = [
+    //     'cases' => null;
+    //     'recovered' => null;
+    //     'deaths' => null;
+    // ];
 }
