@@ -74,10 +74,10 @@
         <div class="container">
             <h1 class="heading text-center">Table Data Stored</h1>
             <!-- this works with get but not with post -->
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">We have successfully scraped the data and stored it in your "lists" table.</p>
-            <p class="col-md-6 offset-md-3 mt-3 wrapper">Total listings stored: {{$count}}</p>
-            <p class="col-md-6 offset-md-3 mt-3 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
-            <a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="search">CRAWL STATS</a>
+            <p class="col-sm-8 offset-sm-2 mt-5 wrapper">We have successfully scraped the data and stored it in your "lists" table.</p>
+            <p class="col-sm-8 offset-sm-2 mt-3 wrapper">Total listings stored: {{$count}}</p>
+            <p class="col-sm-8 offset-sm-2 mt-3 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
+            <a class="btn btn-primary col-sm-4 offset-sm-4 mt-5 wrapper" href="search">CRAWL STATS</a>
         </div>
 
         

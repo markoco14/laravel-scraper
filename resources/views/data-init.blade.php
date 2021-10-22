@@ -77,8 +77,8 @@
         <div class="container">
             <h1 class="heading text-center">Data Table Setup</h1>
             <!-- this works with get but not with post -->
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">{{$paragraph}}</p>
-            <a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>
+            <p class="col-sm-8 offset-sm-2 mt-5 wrapper">{{$paragraph}}</p>
+            <a class="btn btn-primary col-sm-4 offset-sm-4 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>
         </div>
 
         

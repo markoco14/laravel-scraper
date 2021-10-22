@@ -72,11 +72,11 @@
         <div class="container">
             <h1 class="heading text-center">Covid Stats Crawler</h1>
             <!-- this works with get but not with post -->
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">Please use the URL below to get up-to-date Covid-19 stats from Worldometer.com. </p>
-            <p class="col-md-6 offset-md-3 mt-2 wrapper">The URL is provided for you in the input below. If you want to see worldwide stats, press Crawl.</p>
-            <p class="col-md-6 offset-md-3 mt-2 wrapper">If you want to see stats from any country, press the Country selector to view the country search input.</p>
+            <p class="col-md-8 offset-md-2 mt-5 wrapper">Please use the URL below to get up-to-date Covid-19 stats from Worldometer.com. </p>
+            <p class="col-md-8 offset-md-2 mt-2 wrapper">The URL is provided for you in the input below. If you want to see worldwide stats, press Crawl.</p>
+            <p class="col-md-8 offset-md-2 mt-2 wrapper">If you want to see stats from any country, press the Country selector to view the country search input.</p>
             
-            <form action="scraper" class="col-md-6 offset-md-3 mt-5 mb-6" method="get">
+            <form action="scraper" class="col-md-8 offset-md-2 mt-5 mb-6" method="get">
                 @csrf
                 <div class="form-group mt-3">
                     <label for="url-input">Worldometer URL: 
@@ -116,7 +116,7 @@
 
                     
                 </div>
-                <input type="submit" class="btn btn-primary col-md-12 mt-5 wrapper" name="submit" value="Crawl">
+                <input type="submit" class="btn btn-primary col-sm-4 offset-sm-4 mt-3 wrapper" name="submit" value="Crawl">
                 <!-- ?php 
                     $result = DB::Table('links')->select('autocomplete_tag')->get();
                     print_r($result);

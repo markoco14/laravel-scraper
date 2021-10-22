@@ -90,7 +90,7 @@
 	?>
 	<h1 class="heading text-center"><?php echo $the_title ?> Coronavirus Stats</h1>
 	<div >
-		<div class="col-md-6 offset-md-3 mt-5 wrapper">
+		<div class="col-sm-8 offset-sm-2 mt-5 wrapper">
 			<?php 
 				$combined_data = array_combine($data, $dataTwo);
 				// print_r($combined_data);
@@ -108,7 +108,7 @@
 			@endforeach
 			
 		</div>
-		<a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="/search">BACK TO SEARCH</a>
+		<a class="btn btn-primary col-sm-4 offset-sm-4 mt-3 wrapper" href="/search">BACK TO SEARCH</a>
 	</div>
 
 	</div>
