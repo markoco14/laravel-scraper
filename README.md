@@ -93,7 +93,7 @@ See code here: [scraper.blade.php](https://github.com/markoco14/laravel-scraper/
 
 /////controller code here
 
-
+///// include the html
 a
 
 ![search results example](/resources/images/search-results-page.png)
@@ -103,6 +103,8 @@ a
 See code here: [list.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/list.blade.php)
 
 /////controller code here
+
+///// include the html
 
 a
 
