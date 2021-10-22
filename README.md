@@ -21,9 +21,13 @@ The index page is the landing page for the website. This page provides 2 links f
 
 	- The user clicks this link to set up their database and table for the web crawlers. Initializing the database and table is not necessary for the crawlers to work.
 
+![image of data init button](resources/images/choose-date-init.png)
+
 2. Crawl Data Link
 
 	- The user clicks this link if they want to skip the database and table set up. The project still works if users don't set up the database. The search and list views are created from crawlers data. The list view pagination is also created from crawlers data.
+
+![image of search button](resources/images/choose-search-stats.png)
 
 ### Database Init
 
@@ -35,10 +39,7 @@ If the 'links' table doesn't exist, the controller will make the table in the da
 
 The .env file is already configured to use localhost for the database connection. And the database is name is set to "coronavirus_scraper_data". I used PHPMyAdmin to hold the database and tables but the user may change the configurations to suit their needs.
 
-IMAGE OF .ENV FILE GOES HERE
-
 ![image of env db configs](/resources/images/env-db-configs.png)
-
 
 If the 'links' table does exist, the controller tells the user the table is ready.
 
@@ -52,7 +53,11 @@ See code here: [data-ready.blade.php](https://github.com/markoco14/laravel-scrap
 
 ADD A SAMPLE TABLE TO THE WEBSITE
 
-The Table Init page crawls the worldometer website for coronavirus stats 
+The Table Init page fills the table with data. First it checks if the 'links' table is empty or not.
+
+If the 'links' table is empty, the program will run an INSERT query. crawl the data and insert it into the database. The crawler will collect the country names, search hrefs, confirmed cases, deaths, and recovered cases.
+
+If the 'links' table is not empty, the program will assume the data has already been collected and will run an UPDATE query. The data will crawl the confirmed cases, deaths, and recovered cases for each country and update the table. This makes sure the data is always up-to-date. 
 
 ### Search
 
