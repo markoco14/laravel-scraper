@@ -29,7 +29,15 @@ The index page is the landing page for the website. This page provides 2 links f
 
 See code here: [data-init.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-init.blade.php)
 
-The page that sets up the database for the user. The page checks if 
+The Database Init page helps the user set up the database. When the page loads, the Controller will check if the 'links' table exists.
+
+If the 'links' table doesn't exist, the controller will make the table in the database using the Schema. The user needs to make sure their database connection is properly configured.
+
+The .env file is already configured to use localhost for the database connection. And the database is name is set to "coronavirus_scraper_data". I used PHPMyAdmin to hold the database and tables but the user may change the configurations to suit their needs.
+
+If the 'links' table does exist, the controller tells the user the table is ready.
+
+Once the 'links' table is created, the user can click the CHECK DATA button to go to the Table Init Page.
 
 ### Table Init Page 
 
