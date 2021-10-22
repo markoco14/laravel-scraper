@@ -16,13 +16,27 @@ use App\Http\Controllers\TypeaheadController;
 |
 */
 
-// Route::get('/', function () {
-//     // return view('title_of_blade.php_file')
-//     // this route should use the autocomplete form / search suggestion controller
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    // return view('title_of_blade.php_file')
+    // this route should use the autocomplete form / search suggestion controller
+    return view('welcome');
+});
 
-Route::get('/', [App\Http\Controllers\TypeaheadController::class, 'index']);
+// Route::get('/', [App\Http\Controllers\TypeaheadController::class, 'index']);
+
+// route for the data-init page
+// checks for required table in database and creates one if necessary
+Route::get('data-init', [App\Http\Controllers\DataInitController::class, 'createTable']);
+
+// route for the data-ready page
+// checks if the data has the data or not, and inserts the data if necessary
+Route::get('data-ready', [App\Http\Controllers\TableFillController::class, 'fillTable']);
+
+
+// route for the search page
+// allows users to search covid stats results with crawler
+Route::get('search', [App\Http\Controllers\SearchController::class, 'search']);
+
 
 // comment out automplete for now. try to fix it later
 // Route::get('/autocomplete', [App\Http\Controllers\TypeaheadController::class, 'autocomplete'])->name('autocomplete');
@@ -31,14 +45,15 @@ Route::get('/', [App\Http\Controllers\TypeaheadController::class, 'index']);
 // displays the confirmed cases, recovered cases, and deaths stats
 // for worldwide or specific countries
 // displays one results page at a time
-Route::get('scraper', [\App\Http\Controllers\ScraperController::class, 'scraper'])->name('scraper') ;
+Route::get('scraper', [\App\Http\Controllers\ScraperController::class, 'scraper'])->name('scraper');
 
 
 // route for paginated links page
 // the pagination is done with use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 // the results are scraped
 // and then paginated on the screen
-Route::get('list', [App\Http\Controllers\ListScraperController::class, 'list'])->name('list') ;
+Route::get('list', [App\Http\Controllers\ListScraperController::class, 'list'])->name('list');
+
 
 
 

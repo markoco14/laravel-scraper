@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Crawler Search</title>
+        <title>Laravel Crawler Init</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -63,25 +63,26 @@
     </head>
     <body class="antialiased">
        <nav class="navbar justify-content-end">
+           
            <ul class="navbar">
+            
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
               <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
+
            </ul>
        </nav>
-       <div class="container">
-           <h1 class="heading text-center">Covid Stats Crawler</h1>
-           <!-- this works with get but not with post -->
-           <div class="col col-md-8 offset-md-2">
-               <p class="col-md-12 mt-5 wrapper">Welcome the Coronavirus Stats Crawler. For the best experience using the crawler, we recommend you make a data table to store your crawled results. </p> 
-                <a href="/data-init" class="btn btn-primary col-md-4 offset-md-4 mt-3">
-                    MAKE TABLE</a>
-                <p class="col-md-12 mt-5 wrapper">You can still use the crawler without the data table. But you may lose some of the form autocomplete functions. </p>
-                <a href="/search" class="btn btn-primary col-md-4 offset-md-4 mt-3">SEARCH DATA</a>
-               
-           </div>
-           
+
+       
+        <div class="container">
+            <h1 class="heading text-center">Data Table Setup</h1>
+            <!-- this works with get but not with post -->
+            <p class="col-sm-8 offset-sm-2 mt-5 wrapper">{{$paragraph}}</p>
+            <a class="btn btn-primary col-sm-4 offset-sm-4 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>
         </div>
-    
+
+        
+
+  
     </body>
 </html>

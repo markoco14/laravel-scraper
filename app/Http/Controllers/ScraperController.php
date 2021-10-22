@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Goutte\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 // the post/get is being submitted
@@ -40,15 +41,13 @@ class ScraperController extends Controller
         $search_type = $request->get( key: 'search-type');
         $country = $request->get( key: 'country');
 
-        
-
-
-        // dd($url);
-        // dd($search_type);
-        // dd($request->all());
+        // I can try to just convert the country to the country code from the database
+        $countryCode = DB::select('select autocomplete_tag from links where display_name = :display_name', ['display_name' => $country]);
 
         // use Client to request the data
         // test conditional statement
+        // if search type is worldwide
+        // or for a specific country
         if ($search_type == "Worldwide") {
               // init Goutte
             $client = new Client();
@@ -71,7 +70,7 @@ class ScraperController extends Controller
             return view('scraper', compact('data', 'dataTwo', 'dataThree')); 
         } else {
             // init Goutte
-            $url = $url . strtolower($search_type) . "/" . strtolower($country);
+            $url = $url . strtolower($search_type) . "/" . strtolower($countryCode[0]->{'autocomplete_tag'});
             // dd($url);
             $client = new Client();
             $page = $client->request('GET', $url);
