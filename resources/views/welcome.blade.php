@@ -71,16 +71,6 @@
 
            </ul>
        </nav>
-
-        <?php 
-            // if (Schema::hasTable('links')) {
-            //     echo "You have a links table";
-            // } else {
-
-            //     echo "There is no links table";
-            // }
-
-         ?>
         <div class="container">
             <h1 class="heading text-center">Covid Stats Scraper</h1>
             <!-- this works with get but not with post -->

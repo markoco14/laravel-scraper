@@ -74,10 +74,11 @@
 
        
         <div class="container">
-            <h1 class="heading text-center">Data Table Initialization</h1>
+            <h1 class="heading text-center">Table Created</h1>
             <!-- this works with get but not with post -->
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">{{$paragraph}}</p>
-            <a class="btn btn-primary col-md-3 offset-md-3 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>
+            <p class="col-md-6 offset-md-3 mt-5 wrapper">We have successfully created a table with the name 'lists' in your database.</p>
+            <p class="col-md-6 offset-md-3 mt-5 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
+            <a class="btn btn-primary col-md-3 offset-md-3 mt-5 wrapper" href="/">CRAWL STATS</a>
         </div>
 
         
