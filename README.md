@@ -45,19 +45,23 @@ If the 'links' table does exist, the controller tells the user the table is read
 
 Once the 'links' table is created, the user can click the CHECK DATA button to go to the Table Init Page.
 
-IMAGE OF THE BUTTON GOES HERE
+![the get data button](/resources/images/check-data-button.png)
 
 ### Table Init
 
 See code here: [data-ready.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-ready.blade.php)
 
+///////////////////////////////////////////////////
 ADD A SAMPLE TABLE TO THE WEBSITE
+///////////////////////////////////////////////////
 
 The Table Init page fills the table with data. First it checks if the 'links' table is empty or not.
 
 If the 'links' table is empty, the program will run an INSERT query. crawl the data and insert it into the database. The crawler will collect the country names, search hrefs, confirmed cases, deaths, and recovered cases.
 
 If the 'links' table is not empty, the program will assume the data has already been collected and will run an UPDATE query. The data will crawl the confirmed cases, deaths, and recovered cases for each country and update the table. This makes sure the data is always up-to-date. 
+
+![the crawl stats button](/resources/images/crawl-stats-button.png)
 
 ### Search
 
