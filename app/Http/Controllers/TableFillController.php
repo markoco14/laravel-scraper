@@ -48,6 +48,8 @@ class TableFillController extends Controller
         // dd($scrapedData);
         // print_r($data);
 
+
+
         
 
 
@@ -88,6 +90,13 @@ class TableFillController extends Controller
 
             // the update stats call needs to be outside the insert call
             // ...maybe
+
+            // scrape the data for the covid stats here
+
+            // call the update here
+            // you can use an ID and a +1 each round
+            // it shouldn't be any longer than the other request
+            // the problem was you were calling that loop with every for each
 
             // update the data and get the stats here
             // $statsUrl = $url . $country[0]->{'autocomplete_tag'};
