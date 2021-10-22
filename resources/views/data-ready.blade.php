@@ -63,12 +63,10 @@
     </head>
     <body class="antialiased">
        <nav class="navbar justify-content-end">
-           
-           <ul class="navbar">
-            
-           <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-           <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
-
+           <ul class="navbar">     
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+                <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
            </ul>
        </nav>
 
@@ -79,7 +77,7 @@
             <p class="col-md-6 offset-md-3 mt-5 wrapper">We have successfully scraped the data and stored it in your "lists" table.</p>
             <p class="col-md-6 offset-md-3 mt-3 wrapper">Total listings stored: {{$count}}</p>
             <p class="col-md-6 offset-md-3 mt-3 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
-            <a class="btn btn-primary col-md-3 offset-md-3 mt-5 wrapper" href="/">CRAWL STATS</a>
+            <a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="search">CRAWL STATS</a>
         </div>
 
         

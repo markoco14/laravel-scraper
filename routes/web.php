@@ -16,21 +16,26 @@ use App\Http\Controllers\TypeaheadController;
 |
 */
 
-// Route::get('/', function () {
-//     // return view('title_of_blade.php_file')
-//     // this route should use the autocomplete form / search suggestion controller
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    // return view('title_of_blade.php_file')
+    // this route should use the autocomplete form / search suggestion controller
+    return view('welcome');
+});
 
-Route::get('/', [App\Http\Controllers\TypeaheadController::class, 'index']);
+// Route::get('/', [App\Http\Controllers\TypeaheadController::class, 'index']);
 
 // route for the data-init page
-// checks for required table in database, creates one if necessary, and populates it with data
+// checks for required table in database and creates one if necessary
 Route::get('data-init', [App\Http\Controllers\DataInitController::class, 'createTable']);
 
-
+// route for the data-ready page
+// checks if the data has the data or not, and inserts the data if necessary
 Route::get('data-ready', [App\Http\Controllers\TableFillController::class, 'fillTable']);
 
+
+// route for the search page
+// allows users to search covid stats results with crawler
+Route::get('search', [App\Http\Controllers\SearchController::class, 'search']);
 
 
 // comment out automplete for now. try to fix it later

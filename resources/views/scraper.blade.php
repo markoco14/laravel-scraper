@@ -108,7 +108,7 @@
 			@endforeach
 			
 		</div>
-		<a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="/">BACK TO SEARCH</a>
+		<a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="/search">BACK TO SEARCH</a>
 	</div>
 
 	</div>

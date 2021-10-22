@@ -84,9 +84,9 @@
 	    
 	    <ul class="navbar">
 	    	
-	    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-	    <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
-
+		    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+		    <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+		    <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
 	    </ul>
 	</nav>
 	

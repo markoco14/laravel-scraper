@@ -66,8 +66,9 @@
            
            <ul class="navbar">
             
-           <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-           <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+              <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
 
            </ul>
        </nav>
@@ -77,7 +78,7 @@
             <h1 class="heading text-center">Data Table Setup</h1>
             <!-- this works with get but not with post -->
             <p class="col-md-6 offset-md-3 mt-5 wrapper">{{$paragraph}}</p>
-            <a class="btn btn-primary col-md-3 offset-md-3 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>
+            <a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>
         </div>
 
         

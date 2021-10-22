@@ -64,92 +64,27 @@
     <body class="antialiased">
        <nav class="navbar justify-content-end">
            <ul class="navbar">
-               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-               <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+              <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
            </ul>
        </nav>
-        <div class="container">
-            <h1 class="heading text-center">Covid Stats Crawler</h1>
-            <!-- this works with get but not with post -->
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">Please use the URL below to get up-to-date Covid-19 stats from Worldometer.com. </p>
-            <p class="col-md-6 offset-md-3 mt-2 wrapper">The URL is provided for you in the input below. If you want to see worldwide stats, press Crawl.</p>
-            <p class="col-md-6 offset-md-3 mt-2 wrapper">If you want to see stats from any country, press the Country selector to view the country search input.</p>
-            
-            <form action="scraper" class="col-md-6 offset-md-3 mt-5 mb-6" method="get">
-                @csrf
-                <div class="form-group mt-3">
-                    <label for="url-input">Worldometer URL: 
-                        <span style="color:red">
-                            @error('url')
-
-                                {{$message}}
-
-                            @enderror
-                        </span>
-                </label>
-                    <input id= "url-input" class="form-control" name="url" type="text" value="https://www.worldometers.info/coronavirus/">
-                    
-                </div>
-                <div class="form-group mt-3">
-                    <label>Choose how you want to search Covid-19 stats: </label><br>
-                    <label for="worldwide">Worldwide: </label>
-                    <input type="radio" id="worldwide" name="search-type" value="Worldwide" checked>
-                    <label for="country">Country: </label>
-                    <input type="radio" id="country" name="search-type" value="Country">
-                </div>
-                <div id="country-input-controls" class="form-group mt-3">
-                    <label for="url-input">Type the name of the country to see its Covid-19 stats: 
-                        <span style="color:red">
-                            <?php   
-
-                                $country_message = "The country field is required when 'Country' is selected.";
-                             ?>
-                            @error('country')
-
-                                {{$country_message}}
-
-                            @enderror
-                        </span>
-                    </label>
-                    <input id="country-input" class="typeahead form-control" name="country" type="text">
-
-                    
-                </div>
-                <input type="submit" class="btn btn-primary col-md-6 mt-3" name="submit" value="Crawl">
-                <!-- ?php 
-                    $result = DB::Table('links')->select('autocomplete_tag')->get();
-                    print_r($result);
-                    // $autosearch = DB::select('select autocomplete_tag from links ');
-                    //             dd($autosearch);
-                    // dd($autosearch);
-
-                 ?> -->
-
-            </form>
+       <div class="container">
+           <h1 class="heading text-center">Covid Stats Crawler</h1>
+           <!-- this works with get but not with post -->
+           <div class="col col-md-8 offset-md-2">
+               <p class="col-md-12 mt-5 wrapper">Welcome the Coronavirus Stats Crawler. For the best experience using the crawler, we recommend you take the time to make a data table to store your crawled results. </p> 
+               <p class="col-md-12 mt-3 wrapper">If you want to make a data table, 
+                    <a href="/data-init">
+                    click here</a>.</p>
+                <p class="col-md-12 mt-5 wrapper">You can still use the crawler without the data table. But you may lose some of the form autocomplete functions. </p>
+                <p class="col-md-12 mt-3 wrapper">If you want to skip the data table, and go straight to the search page, 
+                    <a href="/search">
+                    click here</a>.</p>
+               
+           </div>
+           
         </div>
-
-        
-    <!-- function to toggle country input display -->
-    <script>
-        let countryInput = document.getElementById('country-input-controls');
-
-        let countrySelector = document.getElementById('country');
-
-        let worldwideSelector = document.getElementById('worldwide');
-
-        function hideCountryInput() {
-            countryInput.style.display = "none";
-        }
-
-        function showCountryInput() {
-            countryInput.style.display = "block";
-        }
-
-        worldwideSelector.addEventListener('click', hideCountryInput);
-
-        countrySelector.addEventListener('click', showCountryInput);
-
-
-    </script>
+    
     </body>
 </html>
