@@ -19,13 +19,16 @@
 	<style>
 		body {
 		    font-family: 'Nunito', sans-serif;
-		    min-height: 1000px;
+		    min-height: 1500px;
 		}
-
 
 		span{
 			text-align: center;
 			border: none;
+			/*display: none;*/
+		}
+		#page-selectors div:nth-child(2) {
+			display: none;
 		}
 
 		h1, h2, h3, h4, h5, p {
@@ -67,6 +70,13 @@
 			background: red;
 			color: white;
 		}
+
+		/*#country-list nav:nth-child(2) .hidden {
+			display: none;
+			background: red;
+
+		}*/
+
 	</style>
 </head>
 <body class="antialiased">
@@ -85,19 +95,32 @@
 	<h1 class="heading text-center">Covid Stats Country List</h1>
 	<p class="col-md-6 offset-md-3 mt-5 wrapper">Click on any of the links below to see their stats on worldometer.com</p>
 	<div class="row">
-		<div class="col-md-6 offset-md-3  mt-5 wrapper">
+		<div id="country-list" class="col-md-6 offset-md-3  mt-5 wrapper">
 			<ul class="list-group list-group-flush">
-				@foreach($links as $link)
-					<a class ="list-group-item list-group-item-action" href="{{$link['complete_url']}}">
-						<li>{{$link['display_name']}} {{$link['autocomplete_tag']}}</li>
-					</a>
-				@endforeach
+				<!-- attempt pagination with scraper data -->
+				<?php 
+					// print_r($paginators);
+					// dd($paginators);
+					// dd($paginators);
+
+				 ?>
+				 @foreach($paginators as $key => $value)
+				 	<?php 
+
+					 	$url = 'https://www.worldometers.info/coronavirus/' . $value;
+					 	// $value = str_replace("country", "", $value);
+					 	// $value = str_replace("/", "", $value);
+					 	// // echo $url;
+				 		// echo $key;
+				 	?>
+
+				 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}}</li></a>
+
+				 @endforeach
 			</ul>
-			<span>
-				{{$links->links()}}
-			</span>
 		</div>
 	</div>
+			<span id="page-selectors">{{ $paginators->links() }}</span>
 
 	</div>
 </body>

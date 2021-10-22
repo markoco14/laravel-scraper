@@ -41,3 +41,6 @@ Route::get('scraper', [\App\Http\Controllers\ScraperController::class, 'scraper'
 Route::get('list', [App\Http\Controllers\ListScraperController::class, 'list'])->name('list') ;
 
 
+
+
+
