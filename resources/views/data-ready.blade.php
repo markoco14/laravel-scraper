@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Scraper</title>
+        <title>Laravel Crawler Ready</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -74,10 +74,11 @@
 
        
         <div class="container">
-            <h1 class="heading text-center">Table Created</h1>
+            <h1 class="heading text-center">Table Data Stored</h1>
             <!-- this works with get but not with post -->
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">We have successfully created a table with the name 'lists' in your database.</p>
-            <p class="col-md-6 offset-md-3 mt-5 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
+            <p class="col-md-6 offset-md-3 mt-5 wrapper">We have successfully scraped the data and stored it in your "lists" table.</p>
+            <p class="col-md-6 offset-md-3 mt-3 wrapper">Total listings stored: {{$count}}</p>
+            <p class="col-md-6 offset-md-3 mt-3 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
             <a class="btn btn-primary col-md-3 offset-md-3 mt-5 wrapper" href="/">CRAWL STATS</a>
         </div>
 

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Scraper</title>
+        <title>Laravel Crawler Init</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -74,7 +74,7 @@
 
        
         <div class="container">
-            <h1 class="heading text-center">Data Table Initialization</h1>
+            <h1 class="heading text-center">Data Table Setup</h1>
             <!-- this works with get but not with post -->
             <p class="col-md-6 offset-md-3 mt-5 wrapper">{{$paragraph}}</p>
             <a class="btn btn-primary col-md-3 offset-md-3 mt-5 wrapper" href="{{$linkUrl}}">{{$linkText}}</a>

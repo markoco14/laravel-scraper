@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Scraper</title>
+        <title>Laravel Crawler Search</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -72,7 +72,7 @@
            </ul>
        </nav>
         <div class="container">
-            <h1 class="heading text-center">Covid Stats Scraper</h1>
+            <h1 class="heading text-center">Covid Stats Crawler</h1>
             <!-- this works with get but not with post -->
             <p class="col-md-6 offset-md-3 mt-5 wrapper">Please use the URL below to get up-to-date Covid-19 stats from Worldometer.com. </p>
             <p class="col-md-6 offset-md-3 mt-2 wrapper">The URL is provided for you in the input below. If you want to see worldwide stats, press Crawl.</p>
@@ -118,9 +118,7 @@
 
                     
                 </div>
-                <div class="form-group mt-3">
-                    <input type="submit" class="btn btn-primary" name="submit" value="Crawl">
-                </div>
+                <input type="submit" class="btn btn-primary col-md-6 mt-3" name="submit" value="Crawl">
                 <!-- ?php 
                     $result = DB::Table('links')->select('autocomplete_tag')->get();
                     print_r($result);
@@ -134,7 +132,7 @@
         </div>
 
         
-
+    <!-- function to toggle country input display -->
     <script>
         let countryInput = document.getElementById('country-input-controls');
 

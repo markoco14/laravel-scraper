@@ -15,7 +15,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 	
-	<title>Laravel Scraper Results</title>
+	<title>Laravel Crawler Results</title>
 	<style>
 
 		body {
@@ -89,7 +89,7 @@
 		// echo $h1_titles[0]; 
 	?>
 	<h1 class="heading text-center"><?php echo $the_title ?> Coronavirus Stats</h1>
-	<div class="row">
+	<div >
 		<div class="col-md-6 offset-md-3 mt-5 wrapper">
 			<?php 
 				$combined_data = array_combine($data, $dataTwo);
@@ -108,6 +108,7 @@
 			@endforeach
 			
 		</div>
+		<a class="btn btn-primary col-md-6 offset-md-3 mt-5 wrapper" href="/">BACK TO SEARCH</a>
 	</div>
 
 	</div>

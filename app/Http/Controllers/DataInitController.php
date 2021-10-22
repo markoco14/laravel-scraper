@@ -26,17 +26,28 @@ class DataInitController extends Controller
 
     public function createTable() {
 
+        $tableName = "links";
         // check if the table exists
-        if(!Schema::hasTable('tables')) {
+        if(!Schema::hasTable($tableName)) {
+            // create the table on this page but don't fill it with data
+            Schema::create('links', function (Blueprint $table) {
+                        $table->id();
+                        $table->string('display_name');
+                        $table->string('autocomplete_tag');
+                        $table->string('complete_url');
+                        $table->string('country_code');
+                        $table->timestamps();
+                    });
+
             // set variables to hold page content and links
-            $paragraph = "We didn't find any tables with the name 'tables' in your database. Please use the button below to create a table in your database.";
-            $linkText = "CREATE TABLE";
+            $paragraph = "We didn't find any tables with the name '{$tableName}' in your database so we created one. Please click 'GET DATA' below to get data for the table.";
+            $linkText = "GET DATA";
             $linkUrl = "data-ready";
             // return data-init view with "table not found" variables
             return view('data-init', ['paragraph' => $paragraph, 'linkText' => $linkText, 'linkUrl' => $linkUrl]);
         } else {
             // set variables to hold page content and links
-            $paragraph = "We found a table with the name 'tables' in your database. Please click 'CHECK DATA' below to fill the table with covid stats data.";
+            $paragraph = "We found a table with the name '{$tableName}' in your database. Please click 'CHECK DATA' below to check the data in your table.";
             $linkText = "CHECK DATA";
             $linkUrl = "data-ready";
             // return data-init view with "table found" variables
