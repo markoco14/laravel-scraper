@@ -63,12 +63,9 @@
     </head>
     <body class="antialiased">
        <nav class="navbar justify-content-end">
-           
            <ul class="navbar">
-            
-           <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-           <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
-
+               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+               <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
            </ul>
        </nav>
         <div class="container">
