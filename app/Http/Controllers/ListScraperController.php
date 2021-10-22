@@ -78,3 +78,10 @@ class ListScraperController extends Controller {
 	}
 
 }
+
+
+// use Goutte\Client;
+// use Illuminate\Http\Request;
+// use App\Models\Link;
+// use Paginator;
+// 		$data=Link::simplePaginate(15);
