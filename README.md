@@ -23,7 +23,7 @@ The index page is the landing page for the website. This page provides 2 links f
 
 ![image of data init button](resources/images/choose-data-init.png)
 
-2. Crawl Data Link
+2. Search Data Link
 
 	- The user clicks this link if they want to skip the database and table set up. The project still works if users don't set up the database. The search and list views are created from crawlers data. The list view pagination is also created from crawlers data.
 
@@ -65,6 +65,8 @@ See code here: [search.blade.php](https://github.com/markoco14/laravel-scraper/b
 
 The search page lets the user search the entire [worldometer website](https://www.worldometers.info/coronavirus/) for worldwide coronavirus stats, or stats from any country of their choosing.
 
+![the search page](/resources/images/search-page.png)
+
 ### Search Results
 
 See code here: [scraper.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/scraper.blade.php)
@@ -72,9 +74,13 @@ See code here: [scraper.blade.php](https://github.com/markoco14/laravel-scraper/
 
 a
 
+![search results example](/resources/images/search-results-page.png)
+
 ### Links
 
 See code here: [list.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/list.blade.php)
 
 a
+
+![paginated-links-example](/resources/images/links-page.png)
 
