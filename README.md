@@ -21,7 +21,7 @@ The index page is the landing page for the website. This page provides 2 links f
 
 	- The user clicks this link to set up their database and table for the web crawlers. Initializing the database and table is not necessary for the crawlers to work.
 
-![image of data init button](resources/images/choose-date-init.png)
+![image of data init button](resources/images/choose-data-init.png)
 
 2. Crawl Data Link
 
