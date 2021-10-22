@@ -67,9 +67,17 @@ If the 'links' table is not empty, the program will assume the data has already 
 
 See code here: [search.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/search.blade.php)
 
-The search page lets the user search the entire [worldometer website](https://www.worldometers.info/coronavirus/) for worldwide coronavirus stats, or stats from any country of their choosing.
+The search page lets the user search the entire [worldometer website](https://www.worldometers.info/coronavirus/) for worldwide coronavirus stats, or stats from any country of their choosing. 
 
 ![the search page](/resources/images/search-page.png)
+
+The base URL for worldometer is placed in the main search input by default. The user can choose between a "Worldwide" search and a "Country" search.
+
+When the "Country" selector is chosen, the country name input appears below.
+
+![the country search selector](/resources/images/country-search-selector.png)
+
+
 
 ### Search Results
 
