@@ -28,6 +28,13 @@ class ListScraperController extends Controller {
 			$this->countries[$item->text()] = $item->text();
 		});
 
+		// $line = $page->filter("td")->each(function($item){
+		// 	$this->lines[$item->text()] = $item->text();
+		// });
+
+		// $dataC=$this->lines;
+		// print_r($dataC);
+
 		//////////////////////
 		// trying to scrape the total case data
 		// come back later
