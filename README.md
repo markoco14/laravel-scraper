@@ -108,7 +108,6 @@ See Controller code here: [ListScraperController.php](https://github.com/markoco
 
 ///// include the html
 <pre>
-	<code>
 		<div class="container">
 			<h1 class="heading text-center">Covid Stats Country List</h1>
 			<p class="col-md-6 offset-md-3 mt-5 wrapper">Click on any of the links below to see their stats on worldometer.com</p>
@@ -138,7 +137,6 @@ See Controller code here: [ListScraperController.php](https://github.com/markoco
 			<span id="page-selectors">{{ $paginators->links() }}</span>
 		</div>
 			
-	</code>
 </pre>
 
 The List page returns a full list of every country. Each country name contains a direct link to the worldometer page where users can see the stats for the selected country.
