@@ -7,35 +7,18 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\Link;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Goutte\Client;
+use Illuminate\Support\Facades\DB;
+
 
 class SearchController extends Controller
 {
     public function search()
     {
-        // $result = 
-        // if (Schema::hasTable('datas')) {
-        //     echo "You have a datas table";
-        // } else {
-
-        //     echo "There is no datas table";
-        //     Schema::create('datas', function (Blueprint $table) {
-        //                 $table->increments('id');
-        //                 $table->string('name');
-        //                 $table->string('airline');
-        //                 $table->timestamps();
-        //             });
-        //     echo "But we made a table for you :)";
-        // }
+       
+        // print_r($results);
         return view('search');
     }
-
-    // public function autocomplete(Request $request)
-    // {
-    //     $data = Link::select("display_name")
-    //             ->where("display_name", "LIKE", "%".$request->get('query')."%")
-    //             ->get();
-    //     return response()->json($data);
-    // }
 }
 
 // $statsUrl = $url . $country_code;
