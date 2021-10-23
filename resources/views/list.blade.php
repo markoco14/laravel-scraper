@@ -90,40 +90,34 @@
 	    </ul>
 	</nav>
 	
-<div class="container">
-	
-	<h1 class="heading text-center">Covid Stats Country List</h1>
-	<p class="col-md-6 offset-md-3 mt-5 wrapper">Click on any of the links below to see their stats on worldometer.com</p>
-	<div class="row">
-		<div id="country-list" class="col-md-6 offset-md-3  mt-5 wrapper">
-			<ul class="list-group list-group-flush">
-				<!-- attempt pagination with scraper data -->
-				<?php 
-					// print_r($paginators);
-					// dd($paginators);
-					// dd($paginators);
+	<div class="container">
+		<h1 class="heading text-center">Covid Stats Country List</h1>
+		<p class="col-md-6 offset-md-3 mt-5 wrapper">Click on any of the links below to see their stats on worldometer.com</p>
+		<div class="row">
+			<div id="country-list" class="col-md-6 offset-md-3  mt-5 wrapper">
+				<ul class="list-group list-group-flush">
+					<!-- attempt pagination with scraper data -->
+					<?php 
+						// print_r($paginators);
+						// dd($paginators);
+						// dd($paginators);
 
-				 ?>
-				 @foreach($paginators as $key => $value)
-				 	<?php 
+					 ?>
+					 @foreach($paginators as $key => $value)
+					 	<?php 
 
-					 	$url = 'https://www.worldometers.info/coronavirus/' . $value;
-					 	// $value = str_replace("country", "", $value);
-					 	// $value = str_replace("/", "", $value);
-					 	// // echo $url;
-				 		// echo $key;
-				 	?>
-				 
-				 		
+						 	$url = 'https://www.worldometers.info/coronavirus/' . $value;
+						 	// $value = str_replace("country", "", $value);
+						 	// $value = str_replace("/", "", $value);
+						 	// // echo $url;
+					 		// echo $key;
+					 	?>		
 					 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}}</li></a>
-
-
-				 @endforeach
-			</ul>
+					 @endforeach
+				</ul>
+			</div>
 		</div>
-	</div>
-			<span id="page-selectors">{{ $paginators->links() }}</span>
-
+		<span id="page-selectors">{{ $paginators->links() }}</span>
 	</div>
 	
 </body>

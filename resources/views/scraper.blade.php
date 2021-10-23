@@ -76,39 +76,39 @@
           <li class="nav-item"><a class="nav-link"href="/list">Stats List</a></li>
        </ul>
 	</nav>
-<div class="container">
-	<?php 
+	<div class="container">
+		<?php 
 
-		if($dataThree === "Worldwide") {
-			$the_title = "Worldwide";
-		} else {
-			$h1_titles = array_values($dataThree);
-			$the_title = $h1_titles[0];
-		}
-		// echo $h1_titles[0]; 
-	?>
-	<h1 class="heading text-center"><?php echo $the_title ?> Coronavirus Stats</h1>
-	<div >
-		<div class="col-sm-8 offset-sm-2 mt-5 wrapper">
-			<?php 
-				$combined_data = array_combine($data, $dataTwo);
-				// print_r($combined_data);
-				// echo $dataThree[" Iran"];
-			?>
-			@foreach($combined_data as $key => $value)
-				<div class="card text-center mt-4">
-			
-					<h5 class="card-header">{{$key}}</h5>
+			if($dataThree === "Worldwide") {
+				$the_title = "Worldwide";
+			} else {
+				$h1_titles = array_values($dataThree);
+				$the_title = $h1_titles[0];
+			}
+			// echo $h1_titles[0]; 
+		?>
+		<h1 class="heading text-center"><?php echo $the_title ?> Coronavirus Stats</h1>
+		<div >
+			<div class="col-sm-8 offset-sm-2 mt-5 wrapper">
+				<?php 
+					$combined_data = array_combine($data, $dataTwo);
+					// print_r($combined_data);
+					// echo $dataThree[" Iran"];
+				?>
+				@foreach($combined_data as $key => $value)
+					<div class="card text-center mt-4">
+				
+						<h5 class="card-header">{{$key}}</h5>
 
-				<div class="card-body">
-					<p class="card-text">{{$value}}</p>
+					<div class="card-body">
+						<p class="card-text">{{$value}}</p>
+					</div>
 				</div>
+				@endforeach
+				
 			</div>
-			@endforeach
-			
+			<a class="btn btn-primary col-sm-4 offset-sm-4 mt-3 wrapper" href="/search">BACK TO SEARCH</a>
 		</div>
-		<a class="btn btn-primary col-sm-4 offset-sm-4 mt-3 wrapper" href="/search">BACK TO SEARCH</a>
-	</div>
 
 	</div>
 </body>

@@ -95,6 +95,8 @@ See full HTML code here: [scraper.blade.php](https://github.com/markoco14/larave
 
 See Controller code here: [ScaperController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/ScraperController.php)
 
+![Sample of list results code](resources/images/single-results-html.png)
+
 The search results page returns a single set of data. If the user searches "Worldwide" covid stats, then the the page will show only the worldwide stats. If the user searches for "Canada" covid stats, then the page will only show covid stats for Canada (see picture below).
 
 ![search results example](/resources/images/search-results-page.png)
@@ -105,8 +107,7 @@ See full HTML code here: [list.blade.php](https://github.com/markoco14/laravel-s
 
 See Controller code here: [ListScraperController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/ListScraperController.php)
 
-
-///// include the html
+![Sample of list results code](resources/images/list-results-html.png)
 
 The List page returns a full list of every country. Each country name contains a direct link to the worldometer page where users can see the stats for the selected country.
 
