@@ -96,6 +96,46 @@ See full HTML code here: [scraper.blade.php](https://github.com/markoco14/larave
 
 See Controller code here: [ScaperController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/ScraperController.php)
 
+````
+<div class="container">
+	<?php 
+
+		if($dataThree === "Worldwide") {
+			$the_title = "Worldwide";
+		} else {
+			$h1_titles = array_values($dataThree);
+			$the_title = $h1_titles[0];
+		}
+		// echo $h1_titles[0]; 
+	?>
+	<h1 class="heading text-center"><?php echo $the_title ?> Coronavirus Stats</h1>
+	<div >
+		<div class="col-sm-8 offset-sm-2 mt-5 wrapper">
+			<?php 
+				$combined_data = array_combine($data, $dataTwo);
+				// print_r($combined_data);
+				// echo $dataThree[" Iran"];
+			?>
+			@foreach($combined_data as $key => $value)
+				<div class="card text-center mt-4">
+			
+					<h5 class="card-header">{{$key}}</h5>
+
+				<div class="card-body">
+					<p class="card-text">{{$value}}</p>
+				</div>
+			</div>
+			@endforeach
+			
+		</div>
+		<a class="btn btn-primary col-sm-4 offset-sm-4 mt-3 wrapper" href="/search">BACK TO SEARCH</a>
+	</div>
+
+</div>
+````
+
+```
+
 ![Sample of list results code](resources/images/single-results-html.png)
 
 The search results page returns a single set of data. If the user searches "Worldwide" covid stats, then the the page will show only the worldwide stats. If the user searches for "Canada" covid stats, then the page will only show covid stats for Canada (see picture below).
