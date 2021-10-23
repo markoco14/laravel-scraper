@@ -107,12 +107,12 @@
 					 	<?php 
 
 						 	$url = 'https://www.worldometers.info/coronavirus/' . $value;
-						 	// $value = str_replace("country", "", $value);
-						 	// $value = str_replace("/", "", $value);
+						 	$value = str_replace("country", "", $value);
+						 	$value = str_replace("/", "", $value);
 						 	// // echo $url;
 					 		// echo $key;
 					 	?>		
-					 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}}</li></a>
+					 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}} <small>({{$value}})</small></li></a>
 					 @endforeach
 				</ul>
 			</div>
