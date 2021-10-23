@@ -83,25 +83,51 @@ class TableFillController extends Controller
                 DB::insert('insert into links (id, display_name, autocomplete_tag, complete_url, country_code, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', array($id, $display_name, $autocomplete_tag, $complete_url, $country_code, $date, $date));
             }
 
-            
-            
-            
+            // put update code here
+            $results = DB::select('select * from links');
+            $values = json_decode(json_encode($results), true);
+            // print_r($values);
+            $array = array();
+            // $results = array_values($results);
+            $range = 0;
+            for ($i = 0; $i <= 50; $i++) {
+                echo $values[$i]["complete_url"];
+                echo "<br>";
 
-            // the update stats call needs to be outside the insert call
-            // ...maybe
+                $stats = new Client();
+                $page = $stats->Request('GET', $values[$i]["complete_url"]);
+                $stat = $page->filter('.maincounter-number')->each(function($item){
+                    // echo $item->text();
+                    $this->stats[$item->text()] = $item->text();
+                    // echo "<br>";
+                    // $data=$this->stats;
+                    // dd($data);
+                });
+                $dataD = $this->stats;
+                // $cases = json_encode($dataD);
+                // echo "Print dataD before reset";
+                // echo "<br>";
+                // // array_splice($dataD, 3);
+                // print_r($dataD);
+                // echo "<br>";
 
-            // scrape the data for the covid stats here
+                $clean = array_values($dataD);
+                // echo "Print clean before splice";
+                // echo "<br>";
+                // print_r($clean);
+                // echo "<br>";
+                
+                array_splice($clean,0,$range);
+                
+                $stat = $clean;
+                $range = $range + 3;
+                DB::update(
+                    'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
+                        [$clean[0], $clean[1], $clean[2], $id]
+                );
 
-            // call the update here
-            // you can use an ID and a +1 each round
-            // it shouldn't be any longer than the other request
-            // the problem was you were calling that loop with every for each
+            }
 
-            // update the data and get the stats here
-            // $statsUrl = $url . $country[0]->{'autocomplete_tag'};
-            // echo $statsUrl;
-
-            // DB::insert('insert into links (id, display_name, autocomplete_tag, complete_url, country_code) values (?, ?, ?, ?, ?)', array($id, $display_name, $autocomplete_tag, $complete_url, $country_code));
             $count = count($scrapedData);
 
             $message = "Your 'lists' table was empty. We have successfully crawled the data and stored it in your 'lists' table.";
@@ -114,101 +140,156 @@ class TableFillController extends Controller
         } else {
             $message = "Your 'lists' table already had stats data.";
             // paginate from database
+            // put update code here
+            $results = DB::select('select * from links');
+            $values = json_decode(json_encode($results), true);
+            // print_r($values);
+            $array = array();
+            // $results = array_values($results);
+            $range = 0;
+            for ($i = 0; $i <= 50; $i++) {
+                echo $i;
+                $stats = new Client();
+                $page = $stats->Request('GET', $values[$i]["complete_url"]);
+                $stat = $page->filter('.maincounter-number')->each(function($item){
+                    // echo $item->text();
+                    $this->stats[$item->text()] = $item->text();
+                    // echo "<br>";
+                    // $data=$this->stats;
+                    // dd($data);
+                });
+                $dataD = $this->stats;
+                
+                $clean = array_values($dataD);
+                
+                array_splice($clean,0,$range);
+
+
+                $range = $range + 3;
+                $id = $i +1;
+
+                DB::update(
+                    'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
+                        [$clean[0], $clean[1], $clean[2], $id]
+                );
+            }
+        }
             $data=Link::simplePaginate(15);
             // print_r($data);
             // echo "The table has data";
             // echo "<br>";
             // echo "the count is " . $count;
             return view('data-ready', ['count'=>$count, 'message'=>$message, 'links'=>$data]);
-        }
-
     }
+
 }
 
 
-// $results = DB::select('select * from links');
-//                 // print_r($results);
-//                 // echo $results[0]["id"];
-//                 // echo "<br>";
-
-//                 if(!$results) {
-//                     echo "No results found";
-//                     foreach ($data as $key => $value) {
-//                         $id = null;
-//                         echo $id;
-//                         echo "<br>";
-//                         $display_name = $key;
-//                         echo $display_name;
-//                         echo "<br>";
-//                         $autocomplete_tag = str_replace("country", "", $value);
-//                         $autocomplete_tag = str_replace("/", "", $autocomplete_tag);
-//                         echo $autocomplete_tag;
-//                         echo "<br>";
-//                         $complete_url = $url . $value;
-//                         echo $complete_url;
-//                         echo "<br>";
-//                         $country_code = $value;
-//                         echo $country_code;
-//                         // $total_cases = "45,000,000";
-                        // DB::insert('insert into links (id, display_name, autocomplete_tag, complete_url, country_code) values (?, ?, ?, ?, ?)', array($id, $display_name, $autocomplete_tag, $complete_url, $country_code));
-//                     }
-
-//                 }
-
-
-///////////////////////////////////
-// get the case data
-///////////////////////////////////
-// $scrapedArray = array_values($scrapedData);
-// // dd($scrapedArray);
-
-// for ($i=0; $i<1; $i++) {
-//     $statsUrl = $url . $scrapedArray[$i];
-//     // echo $statsUrl;
-//     // echo "<br>";
-//     $statsClient = new Client();
-//     $statsPage = $statsClient->Request('GET', $statsUrl);
-//     $stat = $statsPage->filter('.maincounter-number')->each(function($item){
+// $range = 0;
+// for ($i = 51; $i <= 100; $i++) {
+//     echo $i;
+//     $stats = new Client();
+//     $page = $stats->Request('GET', $values[$i]["complete_url"]);
+//     $stat = $page->filter('.maincounter-number')->each(function($item){
+//         // echo $item->text();
 //         $this->stats[$item->text()] = $item->text();
-//         $dataD = $this->stats;
-//         // $dataValues = array_values($dataD);
-//     print_r($dataD);            
+//         // echo "<br>";
+//         // $data=$this->stats;
+//         // dd($data);
 //     });
+//     $dataD = $this->stats;
+    
+//     $clean = array_values($dataD);
+    
+//     array_splice($clean,0,$range);
+
+
+//     $range = $range + 3;
+//     $id = $i +1;
+
+//     DB::update(
+//         'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
+//             [$clean[0], $clean[1], $clean[2], $id]
+//     );
 // }
-// echo "it worked";
-// dd($dataD);
+// $range = 0;
+// for ($i = 101; $i <= 150; $i++) {
+//     echo $i;
+//     $stats = new Client();
+//     $page = $stats->Request('GET', $values[$i]["complete_url"]);
+//     $stat = $page->filter('.maincounter-number')->each(function($item){
+//         // echo $item->text();
+//         $this->stats[$item->text()] = $item->text();
+//         // echo "<br>";
+//         // $data=$this->stats;
+//         // dd($data);
+//     });
+//     $dataD = $this->stats;
+    
+//     $clean = array_values($dataD);
+    
+//     array_splice($clean,0,$range);
 
 
+//     $range = $range + 3;
+//     $id = $i +1;
+
+//     DB::update(
+//         'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
+//             [$clean[0], $clean[1], $clean[2], $id]
+//     );
+// }
+// $range = 0;
+// for ($i = 151; $i <= 200; $i++) {
+//     echo $i;
+//     $stats = new Client();
+//     $page = $stats->Request('GET', $values[$i]["complete_url"]);
+//     $stat = $page->filter('.maincounter-number')->each(function($item){
+//         // echo $item->text();
+//         $this->stats[$item->text()] = $item->text();
+//         // echo "<br>";
+//         // $data=$this->stats;
+//         // dd($data);
+//     });
+//     $dataD = $this->stats;
+    
+//     $clean = array_values($dataD);
+    
+//     array_splice($clean,0,$range);
 
 
-// $statsUrl = $url . $country_code;
-// echo $statsUrl;
-// echo "<br>";
-// $statsClient = new Client();
-// $statsPage = $statsClient->Request('GET', $statsUrl);
+//     $range = $range + 3;
+//     $id = $i +1;
 
-// $stat = $statsPage->filter('.maincounter-number')->each(function($item){
-// //     // filter again to catch the h1 tags
-//     $this->stats[$item->text()] = $item->text();
-// });
-// // echo "it worked";
-// $dataD = $this->stats;
-// // dd($dataD);
-// $statsArray = array_values($dataD);
-// // dd($headingArray);
-// // dd($dataD, $statsArray);
-// // $dataE = array_combine($dataC, $dataD);
-// // dd($dataE);
-// // dd($dataD);
-// print_r( $statsArray);echo "<br>";
-// // $cases = $statsArray[0];
-// // $recovered = $statsArray[1];
-// // $deaths = $statsArray[2];
-// // echo $cases;
-// // echo "<br>";
-// // echo $recovered;
-// // echo "<br>";
-// // echo $deaths;
-// // echo "<br>";
-// // $dataC[0]->{'autocomplete_tag'}
+//     DB::update(
+//         'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
+//             [$clean[0], $clean[1], $clean[2], $id]
+//     );
+// }
+// $range = 0;
+// for ($i = 201; $i <= 220; $i++) {
+//     echo $i;
+//     $stats = new Client();
+//     $page = $stats->Request('GET', $values[$i]["complete_url"]);
+//     $stat = $page->filter('.maincounter-number')->each(function($item){
+//         // echo $item->text();
+//         $this->stats[$item->text()] = $item->text();
+//         // echo "<br>";
+//         // $data=$this->stats;
+//         // dd($data);
+//     });
+//     $dataD = $this->stats;
+    
+//     $clean = array_values($dataD);
+    
+//     array_splice($clean,0,$range);
 
+
+//     $range = $range + 3;
+//     $id = $i +1;
+
+//     DB::update(
+//         'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
+//             [$clean[0], $clean[1], $clean[2], $id]
+//     );
+// }

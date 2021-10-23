@@ -92,6 +92,7 @@ class ScraperController extends Controller
 
             $data = $this->headings;
             $dataTwo = $this->numbers;
+            // print_r($dataTwo);
             $dataThree = $this->titles;
 
             return view('scraper', compact('data', 'dataTwo', 'dataThree'));

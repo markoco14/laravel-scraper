@@ -84,7 +84,7 @@
                 <thead>
                     <tr>
                         <th>Display Name</th>
-                        <th>Autocomplete Tag</th>
+                        <th>Confirmed Cases</th>
                         <th>Created At</th>
                     </tr>
                 </thead>
@@ -92,7 +92,7 @@
                     @foreach($links as $link)
                     <tr>
                         <td>{{$link['display_name']}}</td>
-                        <td>{{$link['autocomplete_tag']}}</td>
+                        <td>{{$link['cases']}}</td>
                         <td>{{$link['created_at']}}</td>
                     </tr>
                            

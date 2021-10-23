@@ -15,7 +15,26 @@ class SearchController extends Controller
 {
     public function search()
     {
-       
+        
+       // foreach($results as $result) {
+       //     $value = json_decode(json_encode($result), true);
+       //     $value = array_values($value);
+       //     print_r($value[3]);
+       //     echo "<br>";
+       //     echo "<br>";
+       //     $stats = new Client();
+       //     $page = $stats->Request('GET', $value[3]);
+       //     // print_r($page);
+       //     // echo "<br>";
+       //     // echo "<br>";
+       //     $stat = $page->filter('.maincounter-number')->each(function($item){
+       //         echo $item->text();
+       //         echo "<br>";
+       //         // $data=$this->stats;
+       //         // dd($data);
+       //     });
+       // }
+
         // print_r($results);
         return view('search');
     }
