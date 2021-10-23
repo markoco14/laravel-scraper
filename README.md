@@ -6,8 +6,11 @@ The project has 2 crawlers:
 
 1. The search crawler
 
+- crawler returns a page with a single set of data
+
 2. The list crawler
 
+- crawler returns a page with a paginated list of all data
 
 ## Pages
 
@@ -86,8 +89,6 @@ The base URL for worldometer is placed in the main search input by default. The 
 When the "Country" selector is chosen, the country name input appears below.
 
 ![the country search selector](/resources/images/country-search-selector.png)
-
-
 
 ### Search Results
 
