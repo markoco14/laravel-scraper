@@ -121,5 +121,23 @@ The results are paginated directly from the scraper results.
 
 ### Models
 
+The project uses one model called Link. It is used to connect automatically to the table titled 'links'.
+
 ### Schema 
 
+The project uses the Schema to create the table for the user. See code sample below.
+
+```
+Schema::create('links', function (Blueprint $table) {
+            $table->id();
+            $table->string('display_name');
+            $table->string('autocomplete_tag');
+            $table->string('complete_url');
+            $table->string('country_code');
+            $table->string('cases')->default("");
+            $table->string('deaths')->default("");
+            $table->string('recovered')->default("");
+            $table->timestamps();
+        }); 
+
+```
