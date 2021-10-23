@@ -91,9 +91,7 @@ class TableFillController extends Controller
             // $results = array_values($results);
             $range = 0;
             for ($i = 0; $i <= 50; $i++) {
-                echo $values[$i]["complete_url"];
-                echo "<br>";
-
+                // echo $i;
                 $stats = new Client();
                 $page = $stats->Request('GET', $values[$i]["complete_url"]);
                 $stat = $page->filter('.maincounter-number')->each(function($item){
@@ -104,28 +102,14 @@ class TableFillController extends Controller
                     // dd($data);
                 });
                 $dataD = $this->stats;
-                // $cases = json_encode($dataD);
-                // echo "Print dataD before reset";
-                // echo "<br>";
-                // // array_splice($dataD, 3);
-                // print_r($dataD);
-                // echo "<br>";
-
                 $clean = array_values($dataD);
-                // echo "Print clean before splice";
-                // echo "<br>";
-                // print_r($clean);
-                // echo "<br>";
-                
                 array_splice($clean,0,$range);
-                
-                $stat = $clean;
                 $range = $range + 3;
+                $id = $i +1;
                 DB::update(
                     'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
                         [$clean[0], $clean[1], $clean[2], $id]
                 );
-
             }
 
             $count = count($scrapedData);
@@ -148,7 +132,7 @@ class TableFillController extends Controller
             // $results = array_values($results);
             $range = 0;
             for ($i = 0; $i <= 50; $i++) {
-                echo $i;
+                // echo $i;
                 $stats = new Client();
                 $page = $stats->Request('GET', $values[$i]["complete_url"]);
                 $stat = $page->filter('.maincounter-number')->each(function($item){
@@ -159,15 +143,10 @@ class TableFillController extends Controller
                     // dd($data);
                 });
                 $dataD = $this->stats;
-                
                 $clean = array_values($dataD);
-                
                 array_splice($clean,0,$range);
-
-
                 $range = $range + 3;
                 $id = $i +1;
-
                 DB::update(
                     'update links set cases = ?, deaths = ?, recovered = ? where id = ?',
                         [$clean[0], $clean[1], $clean[2], $id]

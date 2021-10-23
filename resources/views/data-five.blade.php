@@ -78,7 +78,7 @@
             <p class="col-sm-8 offset-sm-2 mt-5 wrapper">{{$message}}</p>
             <p class="col-sm-8 offset-sm-2 mt-3 wrapper">Total listings stored: {{$count}}</p>
             <p class="col-sm-8 offset-sm-2 mt-3 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
-            <a class="btn btn-primary col-sm-4 offset-sm-4 mt-5 wrapper" href="data-three">NEXT 50</a>
+            <a class="btn btn-primary col-sm-4 offset-sm-4 mt-5 wrapper" href="search">CRAWL STATS</a>
             <!-- table generated using simplepaginate method -->
             <table class="table table-hover table-striped mt-3">
                 <thead>

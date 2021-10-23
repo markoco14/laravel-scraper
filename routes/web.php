@@ -32,6 +32,21 @@ Route::get('data-init', [App\Http\Controllers\DataInitController::class, 'create
 // checks if the data has the data or not, and inserts the data if necessary
 Route::get('data-ready', [App\Http\Controllers\TableFillController::class, 'fillTable']);
 
+// route for the data-two page
+// checks if the data has the data or not, and inserts the data if necessary
+Route::get('data-two', [App\Http\Controllers\DataTwoController::class, 'dataTwo']);
+
+// route for the data-three page
+// checks if the data has the data or not, and inserts the data if necessary
+Route::get('data-three', [App\Http\Controllers\DataThreeController::class, 'dataThree']);
+
+// route for the data-four page
+// checks if the data has the data or not, and inserts the data if necessary
+Route::get('data-four', [App\Http\Controllers\DataFourController::class, 'dataFour']);
+
+// route for the data-five page
+// checks if the data has the data or not, and inserts the data if necessary
+Route::get('data-five', [App\Http\Controllers\DataFiveController::class, 'dataFive']);
 
 // route for the search page
 // allows users to search covid stats results with crawler
