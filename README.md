@@ -133,10 +133,7 @@ See Controller code here: [ScaperController.php](https://github.com/markoco14/la
 
 </div>
 ````
-
-```
-
-![Sample of list results code](resources/images/single-results-html.png)
+<!-- ![Sample of list results code](resources/images/single-results-html.png) -->
 
 The search results page returns a single set of data. If the user searches "Worldwide" covid stats, then the the page will show only the worldwide stats. If the user searches for "Canada" covid stats, then the page will only show covid stats for Canada (see picture below).
 
