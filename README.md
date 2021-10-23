@@ -181,7 +181,28 @@ The List page returns a full list of every country. Each country name contains a
 
 ![paginated-links-example](/resources/images/links-page.png)
 
-The results are paginated directly from the scraper results. 
+The results are paginated directly from the scraper results.
+
+````
+$total = count($data);
+// make page number request
+$page = $request->page ?? 1;
+// choose how many results per page
+$perPage = 20;
+// determine how many items need to be "skipped" on current page
+$offset = ($page - 1) * $perPage;
+// create a sliced array to pass to the paginator
+$items = array_slice($data, $offset, $perPage);
+// dd($items);
+
+$paginators = new \Illuminate\Pagination\LengthAwarePaginator($items, $total, $perPage);
+$localUrl = 'http://localhost:8000/list';
+// use setPath() to prevent going back to the main page
+// when each "next page"/"prev page button is pressed"
+$paginators->setPath($localUrl);
+````
+
+
 
 ## Other Sections
 

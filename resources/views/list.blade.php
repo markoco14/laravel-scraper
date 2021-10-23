@@ -96,13 +96,6 @@
 		<div class="row">
 			<div id="country-list" class="col-md-6 offset-md-3  mt-5 wrapper">
 				<ul class="list-group list-group-flush">
-					<!-- attempt pagination with scraper data -->
-					<?php 
-						// print_r($paginators);
-						// dd($paginators);
-						// dd($paginators);
-
-					 ?>
 					 @foreach($paginators as $key => $value)
 					 	<?php 
 

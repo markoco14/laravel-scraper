@@ -117,15 +117,6 @@
                     
                 </div>
                 <input type="submit" class="btn btn-primary col-sm-4 offset-sm-4 mt-3 wrapper" name="submit" value="Crawl">
-                <!-- ?php 
-                    $result = DB::Table('links')->select('autocomplete_tag')->get();
-                    print_r($result);
-                    // $autosearch = DB::select('select autocomplete_tag from links ');
-                    //             dd($autosearch);
-                    // dd($autosearch);
-
-                 ?> -->
-
             </form>
         </div>
 

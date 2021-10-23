@@ -85,15 +85,12 @@
 				$h1_titles = array_values($dataThree);
 				$the_title = $h1_titles[0];
 			}
-			// echo $h1_titles[0]; 
 		?>
 		<h1 class="heading text-center"><?php echo $the_title ?> Coronavirus Stats</h1>
 		<div >
 			<div class="col-sm-8 offset-sm-2 mt-5 wrapper">
 				<?php 
 					$combined_data = array_combine($data, $dataTwo);
-					// print_r($combined_data);
-					// echo $dataThree[" Iran"];
 				?>
 				@foreach($combined_data as $key => $value)
 					<div class="card text-center mt-4">
