@@ -71,7 +71,7 @@ If the 'links' table is not empty, the program will assume the data has already 
 
 ![the crawl stats button](/resources/images/crawl-stats-button.png)
 
-After the program inserts the data into the table, it will display a paginated table to show what the results look like.
+After the program inserts the data into the table, it will display a paginated table to show what the results look like. The Paginator is built with Laravel's built in Link::simplePaginate() method.
 
 ![example of init table results](resources/images/init-table-sample.png)
 

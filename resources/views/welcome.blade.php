@@ -51,11 +51,6 @@
                 color: black;
             }
 
-
-            /*.form-group {
-                margin-bottom: 1em;
-            }  */
-
             #country-input-controls {
                 display: none;
             }
@@ -71,17 +66,13 @@
        </nav>
        <div class="container">
            <h1 class="heading text-center">Covid Stats Crawler</h1>
-           <!-- this works with get but not with post -->
            <div class="col col-md-8 offset-md-2">
                <p class="col-md-12 mt-5 wrapper">Welcome the Coronavirus Stats Crawler. For the best experience using the crawler, we recommend you make a data table to store your crawled results. </p> 
                 <a href="/data-init" class="btn btn-primary col-md-4 offset-md-4 mt-3">
                     MAKE TABLE</a>
                 <p class="col-md-12 mt-5 wrapper">You can still use the crawler without the data table. But you may lose some of the form autocomplete functions. </p>
                 <a href="/search" class="btn btn-primary col-md-4 offset-md-4 mt-3">SEARCH DATA</a>
-               
            </div>
-           
         </div>
-    
     </body>
 </html>
