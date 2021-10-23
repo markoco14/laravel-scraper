@@ -133,7 +133,6 @@ See Controller code here: [ScaperController.php](https://github.com/markoco14/la
 
 </div>
 ````
-<!-- ![Sample of list results code](resources/images/single-results-html.png) -->
 
 The search results page returns a single set of data. If the user searches "Worldwide" covid stats, then the the page will show only the worldwide stats. If the user searches for "Canada" covid stats, then the page will only show covid stats for Canada (see picture below).
 
@@ -177,14 +176,11 @@ See Controller code here: [ListScraperController.php](https://github.com/markoco
 </div>
 ````
 
-<!-- ![Sample of list results code](resources/images/list-results-html.png) -->
-
 The List page returns a full list of every country. Each country name contains a direct link to the worldometer page where users can see the stats for the selected country.
 
 ![paginated-links-example](/resources/images/links-page.png)
 
 The results are paginated directly from the scraper results. 
-
 
 ## Other Sections
 
