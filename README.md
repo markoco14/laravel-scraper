@@ -13,15 +13,15 @@ The project has 2 crawlers:
 
 ### Index
 
-See code here: [welcome.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/welcome.blade.php)
-
-/////controller code here
+See full HTML code here: [welcome.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/welcome.blade.php)
 
 The index page is the landing page for the website. This page provides 2 links for the user:
 
 1. Data Init Link
 
 	- The user clicks this link to set up their database and table for the web crawlers. Initializing the database and table is not necessary for the crawlers to work.
+
+	- The user only needs to ensure they have a database connection. I recommend the user clone the repo and use their localhost. The localhost will let the program automatically add tables and data because the .env connections are already preset.
 
 ![image of data init button](resources/images/choose-data-init.png)
 
@@ -33,9 +33,10 @@ The index page is the landing page for the website. This page provides 2 links f
 
 ### Database Init
 
-See code here: [data-init.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-init.blade.php)
+See full HTML code here: [data-init.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-init.blade.php)
 
-/////controller code here
+See Controller code here: [DataInitController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/DataInitController.php)
+
 
 The Database Init page helps the user set up the database. When the page loads, the Controller will check if the 'links' table exists.
 
@@ -53,9 +54,10 @@ Once the 'links' table is created, the user can click the CHECK DATA button to g
 
 ### Table Init
 
-See code here: [data-ready.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-ready.blade.php)
+See full HTML code here: [data-ready.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/data-ready.blade.php)
 
-/////controller code here
+See Controller code here: [TableFillController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/TableFillController.php)
+
 
 ///////////////////////////////////////////////////
 ADD A SAMPLE TABLE TO THE WEBSITE
@@ -71,9 +73,9 @@ If the 'links' table is not empty, the program will assume the data has already 
 
 ### Search
 
-See code here: [search.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/search.blade.php)
+See full HTML code here: [search.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/search.blade.php)
 
-/////controller code here
+See Controller code here: [SearchController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/SearchController.php)
 
 The search page lets the user search the entire [worldometer website](https://www.worldometers.info/coronavirus/) for worldwide coronavirus stats, or stats from any country of their choosing. 
 
@@ -89,27 +91,66 @@ When the "Country" selector is chosen, the country name input appears below.
 
 ### Search Results
 
-See code here: [scraper.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/scraper.blade.php)
+See full HTML code here: [scraper.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/scraper.blade.php)
 
-/////controller code here
+See Controller code here: [ScaperController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/ScraperController.php)
 
-///// include the html
-a
+The search results page returns a single set of data. If the user searches "Worldwide" covid stats, then the the page will show only the worldwide stats. If the user searches for "Canada" covid stats, then the page will only show covid stats for Canada (see picture below).
 
 ![search results example](/resources/images/search-results-page.png)
 
-### Links
+### List
 
-See code here: [list.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/list.blade.php)
+See full HTML code here: [list.blade.php](https://github.com/markoco14/laravel-scraper/blob/main/resources/views/list.blade.php)
 
-/////controller code here
+See Controller code here: [ListScraperController.php](https://github.com/markoco14/laravel-scraper/blob/main/app/Http/Controllers/ListScraperController.php)
+
 
 ///// include the html
+<pre>
+	<code>
+		<div class="container">
+			<h1 class="heading text-center">Covid Stats Country List</h1>
+			<p class="col-md-6 offset-md-3 mt-5 wrapper">Click on any of the links below to see their stats on worldometer.com</p>
+			<div class="row">
+				<div id="country-list" class="col-md-6 offset-md-3  mt-5 wrapper">
+					<ul class="list-group list-group-flush">
+						<!-- attempt pagination with scraper data -->
+						<?php 
+							// print_r($paginators);
+							// dd($paginators);
+							// dd($paginators);
+						 ?>
+						 @foreach($paginators as $key => $value)
+						 	<?php 
+							 	$url = 'https://www.worldometers.info/coronavirus/' . $value;
+							 	// $value = str_replace("country", "", $value);
+							 	// $value = str_replace("/", "", $value);
+							 	// // echo $url;
+						 		// echo $key;
+						 	?>
+						 	<a class="list-group-item list-group-item-action" target="_blank" href="{{$url}}"><li>{{$key}}</li></a>
+						 @endforeach
+					</ul>
+				</div>
+			 -->
+			</div>
+			<span id="page-selectors">{{ $paginators->links() }}</span>
+		</div>
+			
+	</code>
+</pre>
 
-a
+The List page returns a full list of every country. Each country name contains a direct link to the worldometer page where users can see the stats for the selected country.
 
 ![paginated-links-example](/resources/images/links-page.png)
 
+The results are paginated directly from the scraper results. 
 
-//// add section about models and schema
+
+## Other Sections
+
+### Models
+
+### Schema 
 
