@@ -51,6 +51,9 @@
                 color: black;
             }
 
+            td:hover{
+                font-weight: bold;
+            }
 
             /*.form-group {
                 margin-bottom: 1em;
@@ -74,10 +77,36 @@
         <div class="container">
             <h1 class="heading text-center">Table Data Stored</h1>
             <!-- this works with get but not with post -->
-            <p class="col-sm-8 offset-sm-2 mt-5 wrapper">We have successfully scraped the data and stored it in your "lists" table.</p>
+            <p class="col-sm-8 offset-sm-2 mt-5 wrapper">{{$message}}</p>
             <p class="col-sm-8 offset-sm-2 mt-3 wrapper">Total listings stored: {{$count}}</p>
             <p class="col-sm-8 offset-sm-2 mt-3 wrapper">If you are ready to use the crawler, use the crawl stats button below.</p>
             <a class="btn btn-primary col-sm-4 offset-sm-4 mt-5 wrapper" href="search">CRAWL STATS</a>
+            <table class="table table-hover table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>Display Name</th>
+                        <th>Autocomplete Tag</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($links as $link)
+                    <tr>
+                        <td>{{$link['display_name']}}</td>
+                        <td>{{$link['autocomplete_tag']}}</td>
+                        <td>{{$link['created_at']}}</td>
+                    </tr>
+                           
+                    @endforeach
+                    
+                </tbody>
+
+
+            </table>
+                        </ul>
+                        <span>
+                            {{$links->links()}}
+                        </span>
         </div>
 
         

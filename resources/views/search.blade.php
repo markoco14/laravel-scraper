@@ -99,7 +99,7 @@
                     <input type="radio" id="country" name="search-type" value="Country">
                 </div>
                 <div id="country-input-controls" class="form-group mt-3">
-                    <label for="url-input">Type the name of the country to see its Covid-19 stats: 
+                    <label for="url-input">Type the name of the country to see its Covid-19 stats: (Ivory Coast, Bosnia and Herzegovina, USA)
                         <span style="color:red">
                             <?php   
 

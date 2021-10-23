@@ -45,14 +45,8 @@ class TableFillController extends Controller
 
         // combine data into key/value pair
         $scrapedData = array_combine($dataA, $dataB);
-        // dd($scrapedData);
+        // print_r($scrapedData);
         // print_r($data);
-
-
-
-        
-
-
 
         // echo "We found a table with the name tables";
         $data = DB::select('select * from links');
@@ -83,10 +77,15 @@ class TableFillController extends Controller
                 // echo "<br>";
                 $country_code = $value;
 
+
                 // echo $country_code;
                 // $total_cases = "45,000,000";
                 DB::insert('insert into links (id, display_name, autocomplete_tag, complete_url, country_code, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', array($id, $display_name, $autocomplete_tag, $complete_url, $country_code, $date, $date));
             }
+
+            
+            
+            
 
             // the update stats call needs to be outside the insert call
             // ...maybe
@@ -104,13 +103,23 @@ class TableFillController extends Controller
 
             // DB::insert('insert into links (id, display_name, autocomplete_tag, complete_url, country_code) values (?, ?, ?, ?, ?)', array($id, $display_name, $autocomplete_tag, $complete_url, $country_code));
             $count = count($scrapedData);
-            return view('data-ready', ['count'=>$count]);
-        } else {
 
+            $message = "Your 'lists' table was empty. We have successfully crawled the data and stored it in your 'lists' table.";
+
+            // paginate from database
+            $data=Link::simplePaginate(15);
+
+
+            return view('data-ready', ['count'=>$count, 'message'=>$message, 'links'=>$data]);
+        } else {
+            $message = "Your 'lists' table already had stats data.";
+            // paginate from database
+            $data=Link::simplePaginate(15);
+            // print_r($data);
             // echo "The table has data";
             // echo "<br>";
             // echo "the count is " . $count;
-            return view('data-ready', ['count'=>$count]);
+            return view('data-ready', ['count'=>$count, 'message'=>$message, 'links'=>$data]);
         }
 
     }
@@ -145,6 +154,30 @@ class TableFillController extends Controller
 //                     }
 
 //                 }
+
+
+///////////////////////////////////
+// get the case data
+///////////////////////////////////
+// $scrapedArray = array_values($scrapedData);
+// // dd($scrapedArray);
+
+// for ($i=0; $i<1; $i++) {
+//     $statsUrl = $url . $scrapedArray[$i];
+//     // echo $statsUrl;
+//     // echo "<br>";
+//     $statsClient = new Client();
+//     $statsPage = $statsClient->Request('GET', $statsUrl);
+//     $stat = $statsPage->filter('.maincounter-number')->each(function($item){
+//         $this->stats[$item->text()] = $item->text();
+//         $dataD = $this->stats;
+//         // $dataValues = array_values($dataD);
+//     print_r($dataD);            
+//     });
+// }
+// echo "it worked";
+// dd($dataD);
+
 
 
 
